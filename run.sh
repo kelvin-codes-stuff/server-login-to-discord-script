@@ -18,7 +18,6 @@ echo 'case "$PAM_TYPE" in' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo '    open_session)' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo '        PAYLOAD=" {\"server_login_content\": \"$PAM_USER $PAM_RHOST $HOSTNAME\" }"' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo '        ;;' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
-
 echo '    close_session)' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo '        PAYLOAD=" {\"server_logout_content\": \"$PAM_USER $PAM_RHOST) $HOSTNAME\" }"' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo '        ;;' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
@@ -26,7 +25,6 @@ echo 'esac' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo 'if [ -n "$PAYLOAD" ] ; then' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo '    curl -X POST -H 'Content-Type: application/json' -d "$PAYLOAD" "$WEBHOOK_URL"' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
 echo 'fi' >> /usr/sbin/sshnotify/sshnotifydiscord.sh
-
 
 
 echo "Adding to pam.d"
